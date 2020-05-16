@@ -3,13 +3,13 @@
 
 extern keymap_config_t keymap_config;
 
-#define _DVORAK 0
+#define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 3
 
 enum custom_keycodes {
-  DVORAK = SAFE_RANGE,
+  QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
   ADJUST,
@@ -21,25 +21,22 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  /* Dvorak
+  /* Qwerty
    * ,----------------------------------------------------------------------------------------------------------------------.
-   * |   \  |   1  |   2  |   3  |   4  |   5  |   ^  |                    |      |   6  |   7  |   8  |   9  |   0  |Pscree|
+   * |  Esc |   Q  |   W  |   E  |   R  |   T  |   -  |                    |   =  |   Y  |   U  |   I  |   O  |   P  |  \   |
    * |------+------+------+------+------+------+------+--------------------+------+------+------+------+------+------+------|
-   * |  !   |   '  |   ,  |   .  |   P  |   Y  |   {  |                    |   }  |   Z  |   G  |   C  |   R  |   L  |  @   |
-   * |------+------+------+------+------+------+------+--------------------+------+------+------+------+------+------+------|
-   * |  /   |   A  |   O  |   E  |   U  |   I  |   [  |                    |   ]  |   D  |   H  |   T  |   N  |   S  |  -   |
+   * | Tab  |   A  |   S  |   D  |   F  |   G  |   [  |                    |   ]  |   H  |   J  |   K  |   L  |   ;  |  "   |
    * |------+------+------+------+------+------+---------------------------+------+------+------+------+------+------+------|
-   * | Shift|   ;  |   Q  |   J  |   K  |   X  |  ESC |                    |  Tab |   B  |   M  |   W  |   V  |   F  |  _   |
+   * | Shift|   Z  |   X  |   C  |   V  |   B  | Space|                    | Enter|   N  |   M  |   ,  |   .  |   /  | Shift|
    * |-------------+------+------+------+------+------+------+------+------+------+------+------+------+------+-------------|
-   * | Ctrl |  GUI |  ALt | EISU |||||||| Space| Lower|  Del |||||||| Bksp | Raise| Enter|||||||| Left | Down |  Up  | Right|
+   * | Ctrl |  GUI |  ALt | EISU |||||||| Lower| Space|Delete|||||||| Bksp | Enter| Raise|||||||| Left | Down |  Up  | Right|
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
-  [_DVORAK] = LAYOUT( \
-    JP_BSLS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    JP_CIRC,                        KC_NO,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PSCR, \
-    KC_EXLM, JP_QUOT, JP_COMM, KC_DOT,  KC_P,    KC_Y,    JP_LCBR,                        JP_RCBR, KC_Z,    KC_G,    KC_C,    KC_R,    KC_L,    JP_AT, \
-    KC_SLSH, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    JP_LBRC,                        JP_RBRC, KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_MINS, \
-    KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_ESC ,                        KC_TAB , KC_B,    KC_M,    KC_W,    KC_V,    KC_F,    JP_UNDS, \
-    KC_LCTL, KC_LGUI, KC_LALT, EISU,             KC_SPC,  LOW_MHN, KC_DEL,KC_BSPC,        RAI_HNK, KC_ENT,           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+  [_QWERTY] = LAYOUT( \
+    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_MINS,                        KC_EQL , KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
+    KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_LBRC,                        KC_RBRC, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC ,                        KC_ENT , KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
+    KC_LCTL, KC_LGUI, KC_LALT, EISU,             LOWER,   KC_SPC , KC_DEL,        KC_BSPC,KC_ENT , RAISE,            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
   ),
 
   /* Lower
